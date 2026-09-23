@@ -1,5 +1,7 @@
 import "dotenv/config";
+
 import { v2 as cloudinary } from "cloudinary";
+
 import fs from "fs";
 
 console.log("CLOUDINARY FILE LOADED");
@@ -45,6 +47,7 @@ const uploadOnCloudinary = async (localFilePath) => {
 
         console.log("File uploaded successfully");
         console.log("URL:", response.secure_url);
+        console.log("Public ID:", response.public_id);
 
         // Delete local file after successful upload
         try {
@@ -55,7 +58,6 @@ const uploadOnCloudinary = async (localFilePath) => {
         }
 
         return response;
-
     } catch (error) {
         console.log("========== CLOUDINARY ERROR ==========");
         console.log(error);
